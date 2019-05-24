@@ -1,6 +1,6 @@
 module.exports = message => {
     const author = message.member
-    if (author.voiceChannel.name === 'Mafia') {
+    if (author.voiceChannel && author.voiceChannel.name === 'Mafia') {
         if (author.voiceChannel.full === false) {
             message.reply('Waiting on more people to join the voice channel.')
             return
@@ -15,6 +15,6 @@ module.exports = message => {
         }
         message.reply('Roles have been sent. Good luck!')
     } else {
-        message.reply('Must be in the `Mafia` voice channel to begin.')
+        message.reply('You must be in the `Mafia` voice channel to start a game.')
     }
 }
